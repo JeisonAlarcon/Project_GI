@@ -1,0 +1,546 @@
+@charset "UTF-8";
+/* DEFINIENDO LA FUENTES LOCALES A USAR */
+/* Tipo de fuente para los h1 y h2 */
+@font-face {
+	/* Definiendo el nombre de la fuente */
+    font-family: BerkshireSwash-Regular;
+	/* Indicando su ubicación */
+    src: url("../fonts/BerkshireSwash-Regular.ttf");
+}
+/* Tipo de fuente para la caja principal (afecta los párrafos) */
+@font-face {
+    font-family: Arvo-Regular;
+    src: url("../fonts/Arvo-Regular.ttf");
+}
+/* Tipo de fuente para el texto dentro de los botones */
+@font-face {
+    font-family: SecularOne-Regular;
+    src: url("../fonts/SecularOne-Regular.ttf");
+}
+
+/*
+Normalizando el documento, es decir, haciendo que los navegadores representen todos los elementos de manera más consistente y en línea con los estándares modernos.
+ */
+* {
+	/* arriba, derecha, abajo, izquierda */
+	margin: 0;
+    padding: 0;
+}
+
+/* MODIFICANDO EL ESTILO DEL CUERPO */
+body {
+	/* Crea una imágen la cual representa un degradado lineal de colores (https://developer.mozilla.org/es/docs/Web/CSS/linear-gradient()) */
+	/* El fondo de será dinámico (no una imagen estática) y cambiará de color */
+	background: linear-gradient(-45deg, #DF0000, #FF8029, #FFD214, #30BAC5, #58D454);
+	/* El fondo requiere un tamaño superior de pantalla para la animación */
+	background-size: 500% 200%; /* Width Heigth */
+	/* Implementación de una animación personalizada (gradient) junto con su duración */
+	animation: gradient 6s ease infinite;
+}
+/* Animación para crear el efecto de cambio de color */
+@keyframes gradient {
+    0% {
+		background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* CONFIGURANDO LA CAJA QUE CONTIENE EL ICONO DEL MENÚ (HAMBURGUESA) */
+header label {
+	/* Deseamos que se muestre solo cuando estemos en pantallas más pequeñas */
+	display: none;
+	/* Dimensiones de la caja que contiene el icono de hamburguesa */
+	width: 50px;
+	height: 50px;
+	padding: 5px;
+}
+header label:hover {
+	/* Cambia el cursor y fondo del checkbox para indicar la interacción */
+	cursor: pointer;
+	background: rgba(0, 0, 0, 0.2);
+}
+
+/* MODIFICACIÓN DEL ESTILO DE LOS TITULARES */
+h1 {
+	/* La fuente se asigna según la de esta disponibilidad */
+	font-family: "BerkshireSwash-Regular", Arial, Helvetica, sans-serif;
+	font-size: 2.6em;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-shadow: 1px 1px #000000;
+	text-align: center;
+	/* Ancho máximo del párrafo */
+	max-width: 640px;
+	/* Margen igual a izquierda y derecha */
+	margin: auto;
+	margin-bottom: 10px;
+}
+h1:link {
+	color:#fffb00;
+	cursor: pointer;
+	text-decoration: none;
+}
+h2 {
+	font-family: "BerkshireSwash-Regular", 'Courier New', Courier, monospace;
+	font-size: 1.5em;
+	font-weight: normal;
+	color: #FFFFFF;
+	text-shadow: 2px 2px #3a3a3a;
+	text-align: left;
+	max-width: 800px;
+	margin: 15px auto;
+	padding: 4px 30px;
+}
+
+/* CAMBIANDO EL ESTILO DE LOS PÁRRAFOS */
+p {
+	/* Distribuir el texto de forma homogénea */
+	text-align: justify;
+	/* Espacio vertical entre las líneas de un mismo párrafo */
+	line-height: 25px;
+	/* Espacio vertical entre párrafos */
+	margin-bottom: 15px;
+	font-size: 0.9em;
+}
+/* Los pseudo-elementos solo aplica a los que NO son inline */
+p::first-letter {
+	color: #e9c913;
+	font-size: 1.5em;
+	text-shadow: 1px 2px #000000;
+}
+
+/* SUSTITUTO AL h2 PARA EL TEXTO EN DOS COLUMNAS */
+blockquote {
+	font: 1.1em "BerkshireSwash-Regular", cursive;
+	margin: 0;
+}
+
+/* APLICACIÓN DE PSEUDO-CLASES A LOS ENLACES */
+a {
+	transition: color 0.5s, font-size 1s;
+}
+/* Aspectos de un link que aun NO visitamos */
+a:link {
+	color: #FFFFFF;
+	text-decoration: none;
+	text-shadow: 2px 1px #000000;
+}
+/* Indica el estilo cuando el cursor está sobre el elemento */
+a:hover {
+	color: #FF006C;
+	font-size: 1.07em;
+	font-weight: bold;
+}
+a:visited {
+	color: #BE06E6;
+}
+
+/* MODIFICACIÓN DEL ESTILO PARA EL FOOTER */
+footer {
+	height: 70px;
+	margin: 5% 15%;
+	text-align: center;
+	background: linear-gradient(to left, #bc4e9c, #f80759);
+}
+
+/* DEFINIENDO LOS COLORES DE ALGUNOS ELEMENTOS DE LÍNEA (CON FINES ESTÉTICOS) */
+.Yellow {
+	color: #FFD214;
+	font-weight: bold;
+	text-shadow: 1.5px 1.5px #000000;
+}
+.Blue {
+	color: #30BAC5;
+	font-weight: bold;
+	text-shadow: 1.5px 1.5px #000000;
+}
+.Green {
+	color: #58D454;
+	font-weight: bold;
+	text-shadow: 1.5px 1.5px #000000;
+}
+.Red {
+	color: #DF0000;
+	font-weight: bold;
+	text-shadow: 1.5px 1.5px #000000;
+}
+.Black {
+	color: #000000;
+	font-weight: bold;
+	text-shadow: 1.5px 1.5px #FFFFFF;
+}
+
+/* ESTILO PARA EL MENÚ DE NAVEGACIÓN */
+.MenuNav {
+	width: 800px;
+	/* Alineado en el centro (margen izquierda y derecha iguales) */
+	/* Solo centra horizontalmente NO verticalmente */
+	margin: auto;
+}
+.MenuNav ul {
+	margin: 0;
+	list-style: none;
+	padding: 0;
+	display: flex;
+	justify-content: space-around;
+}
+.MenuNav li {
+	padding: 6px;
+}
+
+/* CREACIÓN DE LOS BOTONES, MODIFICACIÓN DEL CÓDIGO EXPUESTO EN */
+/* https://www.joshwcomeau.com/animation/3d-button/ */
+#BotonMenu {
+	/* Desaparecemos/ocultamos el checkbox */
+	display: none;
+}
+.pushable {
+	position: relative;
+    border: none;
+    background: transparent;
+    padding: 0;
+	/* Cambiar el tipo de cursor */
+    cursor: pointer;
+    outline-offset: 4px;
+    transition: filter 250ms;
+}
+.shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: hsl(0deg 0% 0% / 0.25);
+    will-change: transform;
+    transform: translateY(2px);
+    transition:
+      transform
+      600ms
+      cubic-bezier(.3, .7, .4, 1);
+}
+.edge {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: linear-gradient(
+      to left,
+      #52001B 0%,
+      #A30036 8%,
+      #A30036 92%,
+      #52001B 100%
+    );
+}
+.front {
+	/* Atributos del texto dentro del botón */
+	font-family: "SecularOne-Regular", Arial, Helvetica, sans-serif;
+	font-size: 1.1rem;
+	text-align: center;
+	color: #FFFFFF;
+	padding: 4px 0px;
+	/* Comportamiento del botón */
+	display: block;
+	position: relative;
+    /* Aspectos físicos del botón */
+    width: 120px;
+	float: left;
+    background: #F0003C;
+	border-radius: 12px;
+	/* Efectos del botón */
+    will-change: transform;
+    transform: translateY(-4px);
+    transition:
+      transform
+      600ms
+      cubic-bezier(.3, .7, .4, 1);
+}
+.pushable:hover {
+	filter: brightness(110%);
+}
+.pushable:hover .front {
+    transform: translateY(-6px);
+    transition:
+      transform
+      250ms
+      cubic-bezier(.3, .7, .4, 1.5);
+}
+.pushable:active .front {
+	transform: translateY(-2px);
+    transition: transform 34ms;
+}
+.pushable:hover .shadow {
+	transform: translateY(4px);
+    transition:
+      transform
+      250ms
+      cubic-bezier(.3, .7, .4, 1.5);
+}
+.pushable:active .shadow {
+	transform: translateY(1px);
+    transition: transform 34ms;
+}
+.pushable:focus:not(:focus-visible) {
+	outline: none;
+}
+
+/* CREACIÓN DE LA CAJA PRINCIPAL EN DONDE ESTARÁ TODO EL CONTENIDO (TEXTO, IMÁGENES, ETC) DE LA PÁGINA */
+/* Este elemento agrupa todo el conjunto y lo centra en la ventana */
+.CajaPrincipal {
+	/* Definiendo el color de fondo */
+	background: rgba(255, 255, 255, 0.5);
+	border-radius: 0.80em;
+	box-shadow:0 0 .25em rgba(0,0,0,.25);
+	box-sizing: border-box;
+	position: relative;
+	top: 10px;
+	/* Arriba y abajo no posee bordes, a los lados deja libre un 15% de la ventana (responsive) */
+	height: auto;
+	margin: 0px 15%;
+	/* Definiendo las márgenes al interior del bloque */
+	padding: 34px 2%;
+	/* Solo funcionará si se suministra el archivo de la fuente */
+	font-family: "Arvo-Regular", Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: normal;
+	color: #000000;
+	text-align: justify;
+	text-shadow: 1px 2px #AAA;
+}
+
+/* DEFINIENDO UN CONTENEDOR RESPONSIVE */
+.FlexContenedor {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row-reverse;
+	justify-content: space-evenly;
+	/* Centramos los elementos del contenedor (imagen) verticalmente */
+	align-items: center;
+}
+.FlexItem {
+	/* Cada elemento del contenedor será del tamaño de la imagen */
+	width: 360px;
+}
+
+/* DEFINIENDO EL BLOQUE CON DOS COLUMNAS PARA LOS CRÉDITOS */
+.DosColumnas {
+	max-width: 800px;
+	margin: 0 auto;
+	column-width: 14em;
+	column-gap: 2em;
+	column-rule: 5px solid #FFFFFF;
+}
+
+/* CREANDO UN NUEVO ESTILO PARA LAS LISTAS */
+#ListaCute ul {
+	margin: 10px 20px;
+	list-style-type: none;
+}
+#ListaCute ul li {
+	font-size: 0.9em;
+	margin: 0 0 15px 40px;
+	/* Distancia del punto al texto */
+	padding-left: 3rem;
+	/* Añadiendo el icono del arcoíris para los elementos de la lista */
+	background-image: url("../images/IconoLista.svg");
+	background-position: 0 0;
+	background-size: 1.6rem 1.6rem;
+	background-repeat: no-repeat;
+}
+/* REALIZANDO UNA PEQUEÑA MODIFICACIÓN AL ESTILO DEL CONTENEDOR DEL MAPA INTERACTIVO */
+#animation_container {
+	margin: auto;
+	left: 0;
+	right: 0;
+}
+
+/* CREANDO EL CONTENEDOR PARA LAS IMÁGENES */
+.CajaImagen {
+	max-width: 800px;
+	height: 360px;
+	margin: 5px auto;
+}
+.CajaImagen img, .FlexItem img {
+	/* La imagen se ajusta al contenido | NO se deforma*/
+	/* Si la caja es más grande que la imagen, ésta se centra */
+	object-fit: contain;
+	float: left;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+/* CREACIÓN DE ALGUNOS EFECTOS PARA LAS IMÁGENES AL PASAR EL CURSOR SOBRE ELLAS */
+.EfectoImagen1 {
+	/* Definiendo el efecto de pixeleado */
+	-webkit-filter: blur(3px);
+	filter: blur(3px);
+	/* Duración entre los dos estados de la imagen (transición) */
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.EfectoImagen1:hover {
+	/* Al pasar el cursor se eliminará el efecto de pixeleado */
+	-webkit-filter: blur(0);
+	filter: blur(0);
+}
+.EfectoImagen2 {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.EfectoImagen2:hover {
+	/* Al pasar el cursor sobre la imagen que el tamaño de esta crezca */
+	-webkit-transform: scale(1.2);
+	transform: scale(1.2);
+}
+
+/* CREACIÓN DE ALGUNAS FORMAS PARA ADAPTAR IMÁGENES */
+.CirculoImagen img {
+	height: 200px;
+	width: 200px;
+	border-radius: 50%;
+	margin: 0 25px 5px 0;
+	float: left;
+	-webkit-shape-outside: circle();
+	shape-outside: circle();
+}
+
+/* CREACIÓN DE UN DESLIZADOR PARA LAS IMÁGENES MUY SENCILLO USANDO SOLAMENTE CSS */
+.Slider {
+	/* Hacen que nuestros elementos aparezcan en horizontal y estén agrupados en cajas */
+	display: flex;
+	/* Tamaño de la caja y uso de éste */
+	height: 460px;
+	width: 100%;
+	/* Para que no se muestren todas las imágenes, lo que sobre no lo muestre y lo esconda para que solo se pueda acceder usando el scroll */
+	overflow-x: scroll;
+	/* Usando la magia de scroll-snap para que al hacer scroll acabe siempre en una imagen */
+	scroll-snap-type: x mandatory;
+}
+.Slider img {
+	/* La imagen se ajusta al contenedor, expande la imagen y recorta los bordes para ajustarse al tamaño.
+		■ Cubrirá el espacio faltante manteniendo el aspecto (perdiendo un poco de información) */
+	object-fit: cover;
+	/* Hacemos que la imágenes tomen el 100% del ancho del contenedor */
+	width: 100%;
+	/* Cada imagen debe adaptarse y quedar en el centro al realizar el scroll */
+	scroll-snap-align: center;
+	/* Personalizando un poco más la caja */
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* CÓDIGO NECESARIO PARA LA CREACIÓN DE UN COLLAGE DE IMÁGENES */
+.Fila {
+	/* Establece los tipos de visualización interna y externa del elemento */
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	/* Los elementos son colocados en varias líneas (https://developer.mozilla.org/es/docs/Web/CSS/flex-wrap) */
+	flex-wrap: wrap;
+	padding: 0 4px;
+}
+/* Creando 4 columnas iguales que se encuentren una al lado de la otra */
+.Columna {
+	-ms-flex: 25%;
+	flex: 25%;
+	max-width: 25%;
+	padding: 0 4px;
+	box-sizing: border-box;
+}
+.Columna img {
+	margin-top: 8px;
+	vertical-align: middle;
+	width: 100%;
+}
+
+/* CREACIÓN DEL ESTILO PARA LOS GOOGLE MAPS RESPONSIVE */
+.MapResponsive {
+	overflow: hidden;
+    padding-bottom: 400px;
+    position: relative;
+    height: 0;
+}
+.MapResponsive iframe {
+	left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+/* CREACIÓN DEL ESTILO PARA LOS VIDEOS DE YOUTUBE RESPONSIVE */
+.VideoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	height: 0;
+}
+.VideoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+
+/* DISEÑO WEB ADAPTABLE (RESPONSIVE WEB DESIGN) PARA CUANDO LA VENTANA MIDA MENOS DE 800px */
+@media screen and (max-width: 800px) {
+	/* Responsive: Hace que el diseño cambie a 2 columnas en lugar de 4 */
+	.Columna {
+		/* Se oculta porque se coloca por fuera de la ventana */
+		-ms-flex: 50%;
+		flex: 50%;
+		max-width: 50%;
+	}
+	header {
+		/* Sostiene la posición, aunque se haga scroll en el contenido (se quedan quietos los botones al bajar la página) */
+		position: fixed;
+		/* Coloca el checkbox por encima del contenido */
+		z-index: 1;
+	}
+	header label {
+		display: block;
+	}
+	.MenuNav {
+		position: absolute;
+		width: 50%;
+		margin-left: -260%;
+		/* La animación desplegara el menú en 0.6 segundo */
+		transition: all 0.6s;
+	}
+	.MenuNav ul {
+		/* Se despliega en sentido vertical */
+		flex-flow: column nowrap;
+	}
+	#BotonMenu:checked ~ .MenuNav {
+		margin: 0;
+	}
+	p {
+		/* Se recomienda aumentar el interlineado y no usar serifas en pantallas pequeñas */
+		line-height: 2;
+		/* Se recomienda también aumentar el tamaño de a fuente para dispositivos pequeños */
+		font-size: 1em;
+	}
+	#ListaCute ul li {
+		font-size: 1em;
+	}
+}
+
+/* DISEÑO WEB ADAPTABLE (RESPONSIVE WEB DESIGN) PARA CUANDO LA VENTANA MIDA MENOS DE 600px */
+@media screen and (max-width: 600px) {
+	/* Hace que las 2 columnas se apilen una encima de la otra en lugar de una al lado de la otra */
+	.Columna {
+		-ms-flex: 100%;
+		flex: 100%;
+		max-width: 100%;
+	}
+}

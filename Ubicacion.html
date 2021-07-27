@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubicación</title>
+    <!-- Adición del icono en la pestaña de navegación -->
+    <link rel="icon" href="assets/images/IconoColombia.png">
+    <!-- Llama el archivo style.css -->
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <!--Crea una marca en un punto de la página-->
+    <a name="Inicio"></a>
+    <!-- Titular de mayor tamaño -->
+    <h1><a href="index.html" target="_self">CAÑO CRISTALES</a></h1>
+    <header>
+        <input type="checkbox" id="BotonMenu">
+        <label for="BotonMenu"><img src="assets/images/IconoMenu.png" alt=""></label>
+        <!-- Panel de navegación con botones -->
+        <nav class="MenuNav">
+            <ul>
+                <li>
+                    <button class="pushable" role="link" onclick="window.location='Ubicacion.html'">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front">
+                            Ubicación
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="pushable" role="link" onclick="window.location='Mapa.html'">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front">
+                            Mapa
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="pushable" role="link" onclick="window.location='Habitantes.html'">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front">
+                            Habitantes
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="pushable" role="link" onclick="window.location='Actividades.html'">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front">
+                            Actividades
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="pushable" role="link" onclick="window.location='Historia.html'">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front">
+                            Historia
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="pushable" role="link" onclick="window.location='Creditos.html'">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front">
+                            Créditos
+                        </span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="CajaPrincipal">
+        <p>
+            Esta maravilla natural, se encuentra localizada en Colombia, América del Sur, en el municipio de la Macarena, ubicado en el departamento del Meta, más exactamente en el río Guayabero situado en el Parque Nacional Natural Sierra de La Macarena. <br><br>
+            El viaje mismo ya es impactante, pues en tu paso por el río Guayabero podrás ver algunos animales exóticos, como tortugas, aves, monos y tal vez alguna babilla.
+        </p>
+        <div class="MapResponsive">
+            <iframe src="https://www.google.com/maps/d/embed?mid=1Wz_NKUppMm8fkEjRbzwh3ocHBnY"></iframe>
+        </div> <br>
+        <p>
+            El paseo se hace con un guía experimentado que te acompaña durante el recorrido. Inicialmente recibirás una charla acerca de lo que debes tener en cuenta para que disfrutes al máximo de este lugar paradisíaco. <br><br>
+            Posteriormente podrás dar un paseo en lancha por el río Guayabero, desde donde se ven animales de la región como aves, babillas, tortugas... Luego harás una caminata ecológica hasta Cristalitos, un lugar hermoso que sirve de antesala para lo que vas a ver después.
+        </p>
+        <p>
+            A lo largo del recorrido, conforme el río va serpenteando por el camino de piedras enormes y oscuras, vestigios de millones de años que surgieron de la erupción de un volcán, vas a encontrar la Velloussea, que es la flor típica de la región de color blanco, semejante a una orquídea que se reproduce sobre las rocas.
+        </p>
+        <section class="Slider">
+            <img src="assets/images/Imagen4.png" alt="Mapa de Google Maps con la ubicación de Caño Cristales.">
+            <img src="assets/images/Imagen5.jpg" alt="Turista posando frente al caño.">
+        </section> <br>
+        <!-- Vinculo a la parte superior de la página -->
+        <a href="#Inicio">Volver al Inicio</a>
+    </div>
+    <!-- Creación del pie de página para añadir información relevante acerca del autor, como nombre, email y redes sociales -->
+    <footer>
+        <blockquote>
+            &copy Jeison Mauricio Alarcón Becerra - 2021 <br>
+            <a href="https://unal.edu.co" target="_blank">Universidad Nacional de Colombia</a> <br>
+            <a href="mailto:jmalarconbe@unal.edu.co" target="_blank">Email</a> &nbsp;&nbsp;
+            <a href="tel:+57 3223425829" target="_blank">Teléfono</a> &nbsp;&nbsp;
+            <a href="https://github.com/JeisonAlarcon" target="_blank">GitHub</a> &nbsp;&nbsp;
+            <a href="https://rpubs.com/JeisonAlarcon" target="_blank">RPubs</a> &nbsp;&nbsp;
+        </blockquote>
+    </footer>
+</body>
+</html>

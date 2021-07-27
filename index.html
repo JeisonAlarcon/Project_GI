@@ -1,0 +1,134 @@
+<!-- Ejemplo de un conjunto de documentos html con navegación interna -->
+<!-- Establece el tipo de estándar del documento -->
+<!DOCTYPE html>
+<html lang="es">
+<!-- Colección de metadatos que interpreta el navegador, pero no tiene una repercusión en la página en sí -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caño Cristales</title>
+    <!-- Adición del icono en la pestaña de navegación -->
+    <link rel="icon" href="assets/images/IconoColombia.png">
+    <!-- Llama el archivo style.css -->
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<!-- Representación de todo el contenido de la página web -->
+<body>
+    <!-- Titular de mayor tamaño -->
+    <h1><a href="index.html" target="_self"></a></h1>
+    <header>
+        <input type="checkbox" id="BotonMenu">
+        <label for="BotonMenu"><img src="assets/images/IconoMenu.png" alt=""></label>
+        <!-- Panel de navegación con botones -->
+        <nav class="MenuNav">
+            <ul>
+                <li>
+                    <button class="pushable" role="link" onclick="window.location='Ubicacion.html'">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front">
+                            Ubicación
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="pushable" role="link" onclick="window.location='Mapa.html'">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front">
+                            Mapa
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="pushable" role="link" onclick="window.location='Habitantes.html'">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front">
+                            Habitantes
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="pushable" role="link" onclick="window.location='Actividades.html'">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front">
+                            Actividades
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="pushable" role="link" onclick="window.location='Historia.html'">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front">
+                            Historia
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="pushable" role="link" onclick="window.location='Creditos.html'">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front">
+                            Créditos
+                        </span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="CajaPrincipal">
+        <p>
+            Caño Cristales (<i>Macarena, Meta, Colombia</i>) es considerado por muchos como el "Río más Hermoso del Mundo". Pareciera exagerado el cumplido, pero solamente visitándolo es posible dimensionar la belleza de este paraíso colombiano. Durante muchos años ha estado totalmente cerrado al turismo. Pero hoy es posible visitarlo con total tranquilidad y con vuelos directos desde Bogotá y Villavicencio.
+        </p>
+        <p>
+            Caño Cristales también es conocido por el nombre del "Río de los cinco colores" (<span class="Yellow">amarillo</span>, <span class="Blue">azul</span>, <span class="Green">verde</span>, <span class="Red">rojo</span> y <span class="Black">negro</span>), pues sus aguas transparentes y puras dejan ver plantas acuáticas que con el sol maduran con estos bellos colores, dándole al río un aspecto mágico. Esta fusión hace parecer como si el arco iris se hubiera fundido dentro del agua cristalina de este río, considerado sin temor a equívocos como el más lindo del mundo.
+        </p>
+        <div class="CajaImagen">
+            <img class="EfectoImagen1" src="assets/images/Imagen1.jpg" alt="Imagen caño cristales temporada de Junio">
+        </div>
+        <p>
+            Este lugar, que te dejará perplejo, es el punto donde se encuentran la Amazonía, la Orinoquía y los Andes, además de ser uno de los más privilegiados de la naturaleza, con más de 1592 especies de flora y 772 de fauna. <br><br>
+            En esta página web podrá encontrar información precisa y una de las mejores galerías de fotos de Caño Cristales.
+        </p> <br>
+        <div class="CajaImagen">
+            <img class="EfectoImagen2" src="assets/images/Imagen2.jpg" alt="Imagen caño cristales temporada Junio">
+        </div>
+        <br>
+        <h2>&#129504;Datos curiosos&#129299;</h2>
+        <div id="ListaCute">
+            <ul>
+                <li>
+                    Los habitantes del lugar le llaman Caño Cristales porque su porte no es muy grande comparado con el del río Amazonas. No sobrepasa los 20 metros de ancho ni los 100 kilómetros de longitud.
+                </li>
+                <li>
+                    Su nacimiento se produce en la meseta sur de la Serranía de La Macarena, en el Meta.
+                </li>
+                <li>
+                    No está permitido el uso de bloqueador ni repelente si se va a ingresar al río, debido a que los químicos pueden afectar el crecimiento de la macarenias clavigera, la planta que florece en sus profundidades y le da sus colores.
+                </li>
+                <li>
+                    Antes del 2008 Caño Cristales era conocido como el balneario de las Farc, una región tomada por la guerrilla e impenetrable para foráneos que inclusive formó parte de la famosa zona de distensión en la que el expresidente, Andrés Pastrana, cedió el control al grupo guerrillero en busca de conseguir un acuerdo de paz.
+                </li>
+            </ul>
+        </div>
+        <div class="VideoWrapper">
+            <iframe width="748" height="421" src="https://www.youtube.com/embed/P5erzCQXn2w" title="Video resumen de caño cristales en YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+    <!-- Creación del pie de página para añadir información relevante acerca del autor, como nombre, email y redes sociales -->
+    <footer>
+        <blockquote>
+            &copy Jeison Mauricio Alarcón Becerra - 2021 <br>
+            <a href="https://unal.edu.co" target="_blank">Universidad Nacional de Colombia</a> <br>
+            <a href="mailto:jmalarconbe@unal.edu.co" target="_blank">Email</a> &nbsp;&nbsp;
+            <a href="tel:+57 3223425829" target="_blank">Teléfono</a> &nbsp;&nbsp;
+            <a href="https://github.com/JeisonAlarcon" target="_blank">GitHub</a> &nbsp;&nbsp;
+            <a href="https://rpubs.com/JeisonAlarcon" target="_blank">RPubs</a> &nbsp;&nbsp;
+        </blockquote>
+    </footer>
+</body>
+</html>

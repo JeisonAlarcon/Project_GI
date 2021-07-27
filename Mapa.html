@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="Adobe_Animate_CC, width=device-width, initial-scale=1.0">
+    <title>Ubicación</title>
+    <!-- Adición del icono en la pestaña de navegación -->
+    <link rel="icon" href="assets/images/IconoColombia.png">
+    <!-- Llama el archivo style.css -->
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <!-- Llama el script createjs desde la web, por lo cual estaremos usando la última versión y no necesitamos descargar nada -->
+    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+    <!-- Llamamos el archivo JavaScript creado automáticamente al compilar el .fla de Animate CC -->
+    <script src="MapaInteractivo.js"></script>
+    <script>
+    var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+    function init() {
+        canvas = document.getElementById("canvas");
+        anim_container = document.getElementById("animation_container");
+        dom_overlay_container = document.getElementById("dom_overlay_container");
+        var comp=AdobeAn.getComposition("EC867CB7765EB64BA1A5C03D02010574");
+        var lib=comp.getLibrary();
+        var loader = new createjs.LoadQueue(false);
+        loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+        loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+        var lib=comp.getLibrary();
+        loader.loadManifest(lib.properties.manifest);
+    }
+    function handleFileLoad(evt, comp) {
+        var images=comp.getImages();
+        if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }
+    }
+    function handleComplete(evt,comp) {
+        //This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+        var lib=comp.getLibrary();
+        var ss=comp.getSpriteSheet();
+        var queue = evt.target;
+        var ssMetadata = lib.ssMetadata;
+        for(i=0; i<ssMetadata.length; i++) {
+            ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+        }
+        exportRoot = new lib.MapaInteractivo();
+        exportRoot.addEventListener("tick", AdobeAn.handleFilterCache);
+        stage = new lib.Stage(canvas);
+        stage.enableMouseOver();
+        //Registers the "tick" event listener.
+        fnStartAnimation = function() {
+            stage.addChild(exportRoot);
+            createjs.Ticker.framerate = lib.properties.fps;
+            createjs.Ticker.addEventListener("tick", stage);
+        }
+        //Code to support hidpi screens and responsive scaling.
+        AdobeAn.makeResponsive(true,'both',false,1);
+        AdobeAn.compositionLoaded(lib.properties.id);
+        fnStartAnimation();
+    }
+    </script>
+</head>
+<body onload="init();">
+    <!--Crea una marca en un punto de la página-->
+    <a name="Inicio"></a>
+    <!-- Titular de mayor tamaño -->
+    <h1><a href="index.html" target="_self">CAÑO CRISTALES</a></h1>
+    <header>
+        <input type="checkbox" id="BotonMenu">
+        <label for="BotonMenu"><img src="assets/images/IconoMenu.png" alt=""></label>
+        <!-- Panel de navegación con botones -->
+        <nav class="MenuNav">
+            <ul>
+                <li>
+                    <button class="pushable" role="link" onclick="window.location='Ubicacion.html'">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front">
+                            Ubicación
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="pushable" role="link" onclick="window.location='Mapa.html'">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front">
+                            Mapa
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="pushable" role="link" onclick="window.location='Habitantes.html'">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front">
+                            Habitantes
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="pushable" role="link" onclick="window.location='Actividades.html'">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front">
+                            Actividades
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="pushable" role="link" onclick="window.location='Historia.html'">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front">
+                            Historia
+                        </span>
+                    </button>
+                </li>
+                <li>
+                    <button class="pushable" role="link" onclick="window.location='Creditos.html'">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front">
+                            Créditos
+                        </span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="CajaPrincipal">
+        <p>
+            A continuación, puede disfrutar de un mapa interactivo visualizando un <b>Street View 360&ordm;</b> de una pequeña parte de Caño Cristales.  Esta herramienta le permitirá (<i>sin importar el dispositivo de consulta</i>) obtener información más detallada de diversos aspectos del lugar.
+        </p>
+        <!-- Insertamos el canvas del mapa interactivo -->
+        <div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:640px; height:480px">
+            <canvas id="canvas" width="640" height="480" style="position: absolute; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
+            <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:640px; height:480px; position: absolute; left: 0px; top: 0px; display: block;">
+            </div>
+        </div>
+        <br> <br>
+        <!-- Vinculo a la parte superior de la página -->
+        <a href="#Inicio">Volver al Inicio</a>
+    </div>
+    <!-- Creación del pie de página para añadir información relevante acerca del autor, como nombre, email y redes sociales -->
+    <footer>
+        <blockquote>
+            &copy Jeison Mauricio Alarcón Becerra - 2021 <br>
+            <a href="https://unal.edu.co" target="_blank">Universidad Nacional de Colombia</a> <br>
+            <a href="mailto:jmalarconbe@unal.edu.co" target="_blank">Email</a> &nbsp;&nbsp;
+            <a href="tel:+57 3223425829" target="_blank">Teléfono</a> &nbsp;&nbsp;
+            <a href="https://github.com/JeisonAlarcon" target="_blank">GitHub</a> &nbsp;&nbsp;
+            <a href="https://rpubs.com/JeisonAlarcon" target="_blank">RPubs</a> &nbsp;&nbsp;
+        </blockquote>
+    </footer>
+</body>
+</html>
